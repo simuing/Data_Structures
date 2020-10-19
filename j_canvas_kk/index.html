@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j_canvas</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./assets/js/j_canvas.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/j_canvas.css">
+    <script type="text/javascript" >
+        /*<![CDATA[*/
+        let ctxName = "ctx";   //캔버스명 String
+        let cPushArray = new Array(); //수정된 캔버스 이력을 저장하는 배열
+        let mousePressed = false;
+        let cStep = 0; //수정 횟수
+        let lastX = 0;
+        let lastY = 0;
+        let $ctx; //캔버스 Object 주소
+        
+        $(document).ready(function(){
+            setCanvas(ctxName);
+            console.log('setCanvas')
+            //로딩이 늦어질 경우를 대비하여 한번 더 셋팅
+            canvasImageChange();
+        });
+        
+        
+        window.onload = function () {
+            
+        }
+    
+        //canvas image change
+        function list(data){
+            attachFileAppend_canvas(data);
+        } 
+        
+        /*]]>*/
+    </script>
+</head>
+<body>
+    <div class="content">
+        <form id="fileForm" enctype="multipart/form-data" accept-charset="UTF-8">
+            <div class="file_upload_area">
+            
+                <div id="canvas_box" class="box">
+                    <!-- canvas 템플릿 -->
+                    <div class="myCanvasBox">
+                        <div class="myCanvasBtn">
+                            <button type="button" id="clean" onclick="canvasImageChange()">
+                                Reset
+                            </button><button type="button" id="undo" onclick="cUndo('ctx')">
+                                &lt;
+                            </button><button type="button" id="redo" onclick="cRedo()">
+                                &gt;
+                            </button>
+                            <input type="hidden" id="selColor" value="red"/>
+                            <input type="button" id="selColor_red"    class="canvasSelectColor" style="background-color: red;"    onclick="canvasSelectChange('selColor', 'red')"/>
+                            <input type="button" id="selColor_orange" class="canvasSelectColor" style="background-color: orange;" onclick="canvasSelectChange('selColor', 'orange')"/>
+                            <input type="button" id="selColor_yellow" class="canvasSelectColor" style="background-color: yellow;" onclick="canvasSelectChange('selColor', 'yellow')"/>
+                            <input type="button" id="selColor_green"  class="canvasSelectColor" style="background-color: green;"  onclick="canvasSelectChange('selColor', 'green')"/>
+                            <input type="button" id="selColor_blue"   class="canvasSelectColor" style="background-color: blue;"   onclick="canvasSelectChange('selColor', 'blue')"/>
+                            <input type="button" id="selColor_navy"   class="canvasSelectColor" style="background-color: navy;"   onclick="canvasSelectChange('selColor', 'navy')"/>
+                            <input type="button" id="selColor_gray"   class="canvasSelectColor" style="background-color: gray;"   onclick="canvasSelectChange('selColor', 'gray')"/>
+                            <input type="button" id="selColor_black"  class="canvasSelectColor" style="background-color: black;"  onclick="canvasSelectChange('selColor', 'black')"/>
+                            <input type="button" id="selColor_white"  class="canvasSelectColor" style="background-color: white;"  onclick="canvasSelectChange('selColor', 'white')"/>
+                            <select id="selWidth">
+                                <option value="3">3</option>
+                                <option value="5" selected="selected">5</option>
+                                <option value="7">7</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div>
+                            <canvas id="ctx" class="myCanvas"></canvas>
+                        </div>
+                        <div>
+                            <img id="img" class="myCanvasImage"/>
+                        </div>
+                    </div>
+                    
+                    <!-- file info -->
+                    <!-- <div id="attach" class="canvas_file_info">
+                        <div class="upload_area_td">
+                            <div class="drop_file_td">
+                                <input type="file" id="file" name="file"/>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </form>
+        </div>
+</body>
+</html>

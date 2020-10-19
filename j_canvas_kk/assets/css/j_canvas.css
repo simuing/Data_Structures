@@ -1,0 +1,242 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*	****************************************************************************
+	css설명 : file upload
+	사용영역 : upload01_pop.html
+	수정이력 : 장은영 최초작성
+********************************************************************************* */
+.file_list_tr {
+	/* 높이 조정될 경우 CS6111_pop 의 높이도 확인필요 */
+	height: 90px;
+}
+.file_list_tr td {
+	overflow: overlay;
+}
+.file_upload_area{
+	padding: 17px;
+}
+.upload_area {
+	width: 100%;
+	height: 300px;
+	background-image: url(/assets/img/file-upload.png);
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+.upload_area_td {
+    width: 90px;
+    height: 100%;
+    float: right;
+    background-color: #e7e7e7;
+}
+.drop_file {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+}
+.drop_file_td {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background-image: url(/assets/img/file-upload.png);
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.drop_file>input:hover,
+.drop_file_td>input:hover{
+	cursor: pointer;
+}
+.drop_file>input, 
+.drop_file_td>input{
+	opacity: 0;
+    width: inherit;
+    height: inherit;
+}
+.file_list_area{
+	/* popup */
+	width: 80%;
+	max-height: 200px;
+    position: absolute;
+    margin: 50px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.file_list_area div,
+.file_list_area_td div{
+	/* popup */
+    width: 47%;
+    margin: 1%;
+    padding: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #f4e9e3;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px goldenrod;
+}
+.file_list_td {
+	width: 190px;
+    margin: 5px;
+    padding: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #e3f2f4;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px #209eda;
+}
+.file_list_area a, .file_list_td a{
+    width: 100%;
+    margin-left: 7px;
+    display: inline;
+    vertical-align: middle;
+    word-break: break-all;
+    cursor: pointer;
+}
+.file_list_area a:before,
+.file_list_td a:before {
+	content: url(/assets/img/file-upload.png);
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 7px;
+}
+.file_list_area span,
+.file_list_td span{
+	margin: 0px 8px;
+    float: right;
+    color: red;
+    font-weight: bold;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.file_upload_btn {
+    width: 100%;
+    bottom: 30px;
+    
+}
+.file_upload_btn>div{
+	width: 86%;
+    margin: auto;
+    margin-top: 10px;
+}
+.file_upload_btn input{
+	height: 38px;
+    box-shadow: 1px 1px 2px 1px goldenrod;
+    border-radius: 20px;
+}
+
+.file_form_th>p{
+	margin: 2px;
+}
+.file_form_th>div{
+	color: blue;
+}
+.file_form_th>div>a{
+	color: blue;
+	text-decoration: none;
+}
+.file_form_th>div>a:hover{
+	color: #00007d;
+	text-decoration: none;
+}
+
+.file_plus_btn{
+	display: block;
+	margin: auto;
+	margin-top: 5px;
+	padding: 1px 5px;
+	color: white;
+	background-color: rgba(34, 109, 201, 1);
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0px 1px 3px 0px gray;
+}
+
+/* 사진 화면출력 영역 */
+.area_img{text-align: center; background-color: #f6f6f6;} 
+.area_img>.imvbfp_img{height: 200px;}
+
+/* 사외공사 팝업 현장전경사진 */ 
+.area_img>.cs_img{width: 100%;} 
+
+
+/* **************************************** image editor css **************************************** */
+.myCanvasBox{
+	width: 100%;
+}
+.myCanvas{
+	width: 100%;
+    height: 750px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f6f6f6;
+    /* border: 1px solid #b4b4b4; */
+    border-top: 0px;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 5px 0px #b4b4b4
+}
+.myCanvasBtn{
+    height: 50px;
+    width: 100%;
+    background-color: rgb(255 255 255);
+    border: 1px solid gainsboro;
+}
+.myCanvasBtn #upload,
+.myCanvasBtn #clear,
+.myCanvasBtn #convert{
+	float: right;
+}
+.myCanvasImage{
+	width: 100%;
+	display: none;
+}
+.myCanvasBtn button,
+.myCanvasBtn select{
+	height: 100%;
+    padding: 0px 15px;
+    color: black;
+    background-color: white;
+    border: none;
+}
+.myCanvasBtn button:hover,
+.myCanvasBtn select:hover{
+	background-color: gainsboro;
+	cursor: pointer;
+}
+.myCanvasBtn button>img{
+    height: 15px;
+    margin-left: 3px;
+}
+
+/* .img_upload_btn{
+	height: 100%;
+    width: 15px;
+    float: right;
+    margin-left: 3px;
+    background-image: url(/resources/img/common/icon/save.png);
+    background-size: 17px;
+    background-repeat: no-repeat;
+} */
+.img_upload_btn input{
+	height: 15px;
+    width: 100%;
+    opacity: 0;
+}
+.img_upload_btn:hover{
+	cursor: pointer;
+}
+
+
+.canvas_file_info{
+	display: none;
+}
+
+.canvasSelectColor{
+	height: 15px;
+	width: 15px;
+	vertical-align: middle;
+	border: none;
+}
